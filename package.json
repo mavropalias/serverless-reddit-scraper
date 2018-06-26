@@ -1,0 +1,19 @@
+{
+  "name": "reddit-scraper",
+  "version": "1.0.0",
+  "description": "Reddit scraper in Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mavropalias/reddit-scraper.git"
+  },
+  "author": "Kostas Mavropalias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mavropalias/reddit-scraper/issues"
+  },
+  "homepage": "https://github.com/mavropalias/reddit-scraper#readme"
+}
