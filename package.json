@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mavropalias/reddit-scraper/issues"
   },
-  "homepage": "https://github.com/mavropalias/reddit-scraper#readme"
+  "homepage": "https://github.com/mavropalias/reddit-scraper#readme",
+  "dependencies": {
+    "snoowrap": "^1.15.2"
+  }
 }
