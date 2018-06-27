@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc --skipLibCheck"
+    "tsc": "./node_modules/.bin/tsc --skipLibCheck"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.3",
-    "@types/snoowrap": "^1.16.0"
+    "@types/snoowrap": "^1.16.0",
+    "typescript": "^2.9.2"
   }
 }
