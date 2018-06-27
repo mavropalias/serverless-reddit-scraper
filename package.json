@@ -4,7 +4,9 @@
   "description": "Reddit scraper in Node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc --skipLibCheck"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,11 @@
   },
   "homepage": "https://github.com/mavropalias/reddit-scraper#readme",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "snoowrap": "^1.15.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^4.0.3",
+    "@types/snoowrap": "^1.16.0"
   }
 }
