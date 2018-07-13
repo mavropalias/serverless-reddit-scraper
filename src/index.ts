@@ -31,7 +31,13 @@ class RedditScraper {
   failed: number = 0;
 
   getOldPosts(): void {
-    r.getTop(process.env.SUBREDDIT)
+    r.getTop(process.env.SUBREDDIT, { time: 'all' })
+      .fetchAll()
+      .then(this.processListing.bind(this));
+  }
+
+  getHotPosts(): void {
+    r.getHot(process.env.SUBREDDIT, { time: 'day' })
       .fetchAll()
       .then(this.processListing.bind(this));
   }
@@ -43,10 +49,15 @@ class RedditScraper {
 
   processPosts(postsListing: Listing<Submission>): void {
     const posts = postsListing.filter((post) => {
+      if (
+        process.env.POST_MINIMUM_UPVOTES &&
+        post.ups < +process.env.POST_MINIMUM_UPVOTES
+      )
+        return false;
       if (typeof post.secure_media_embed.content !== 'string') return false;
       if (
-        process.env.FLAIR_TEXT &&
-        post.link_flair_text !== process.env.FLAIR_TEXT
+        process.env.POST_FLAIR_TEXT &&
+        post.link_flair_text !== process.env.POST_FLAIR_TEXT
       ) {
         return false;
       }
@@ -62,6 +73,8 @@ class RedditScraper {
     const params = {
       TableName: 'Clips',
       Item: {
+        pk: 'feed',
+        sk: post.created_utc.toString(),
         id: post.id,
         created_utc: post.created_utc,
         title: post.title,
@@ -91,4 +104,4 @@ class RedditScraper {
 }
 
 const scraper = new RedditScraper();
-scraper.getOldPosts();
+scraper.getHotPosts();
