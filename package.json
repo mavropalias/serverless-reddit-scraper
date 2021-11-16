@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/mavropalias/reddit-scraper#readme",
   "dependencies": {
-    "aws-sdk": "^2.264.1",
+    "aws-sdk": "^2.814.0",
     "dotenv": "^6.0.0",
     "snoowrap": "^1.15.2",
     "uuid": "^3.3.0"
